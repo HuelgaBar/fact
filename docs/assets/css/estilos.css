@@ -1,0 +1,1113 @@
+:root {
+  --mesa: #000;
+  --Grande: #f4a0ff;
+  --Sillon: #f2c2b7;
+  --Balcon: #b2d7ff;
+  --Adentro: #ffdf75;
+  --Esquina: #d8ff6b;
+  --Patio: #98fb98;
+  --Bancos: #ff7171;
+  --modal-bg: rgba(64, 64, 64, 1);
+  --modal-border: double darkolivegreen 3px;
+  --fondoNoBlanco: #e6e6e6;
+  --rem: 16px;
+}
+
+/* html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+/* article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+} 
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+} */
+
+html {
+
+  width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  margin: 1vmin;
+  font-size: var(--rem);
+  background-color: darkslategrey;
+}
+
+button {
+  cursor: pointer;
+}
+
+h3 {
+  color: var(--fondoNoBlanco);
+  text-align: center;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+#app {
+  min-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+ul {
+  list-style-type: none;
+}
+
+textarea {
+  background-color: var(--fondoNoBlanco);
+}
+
+input {
+  appearance: none;
+  margin: 0;
+}
+
+.mesas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100vw;
+  /* align-items: center; */
+}
+
+.mesas div {
+  display: flex;
+  flex-direction: row;
+  /* min-width: 40vw; */
+  width: 49%;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0.2vmin;
+  padding: 1px;
+  justify-content: flex-start;
+  border: solid 1px black;
+  border-radius: 3px;
+}
+
+.mesas div button {
+  height: 1.5rem;
+  width: 7.5vw;
+  font-size: 1rem;
+  margin: 0.3rem 0.1rem;
+  padding-bottom: 10px;
+  cursor: pointer;
+  border-radius: 0.6rem;
+  vertical-align: text-top;
+  border: outset 2px lightgray;
+}
+
+.mesas div button:hover {
+  border: inset 2px lightgray;
+}
+
+.containerBotones {
+  display: flex;
+  flex-direction: column;
+  width: 10vw;
+  height: 15vw;
+  margin-top: 1vmin;
+  align-items: center;
+  height: auto;
+  /* padding-top:7px; */
+  border-radius: 5px;
+  justify-content: flex-start;
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.containerBotones * {
+  display: flex;
+  font-size: 1rem;
+  margin-top: 2vw;
+  /* margin: auto; */
+  width: 100%;
+  height: 4vw;
+  text-align: center;
+  align-items: center;
+  background-color: lightgrey;
+  border: ridge 4px lightslategrey;
+  justify-content: center;
+}
+
+.containerBotones button {
+  border: outset 2px darkgrey;
+  cursor: pointer;
+}
+
+.containerBotones button:nth-child(3){
+	margin-top: 5vw;
+}
+
+.containerBotones button:hover {
+  background-color: rgb(135, 135, 135);
+}
+
+.input-con-lista {
+  position: sticky;
+  top: 30vh;
+  width: 25vw;
+  font-size: 1rem;
+  margin: 2vmin 2px 2px 5vw;
+}
+
+.input-con-lista * {
+  font-size: 1rem;
+}
+
+.lista-desplegable {
+  width: 92%;
+  background-color: lightgrey;
+}
+
+.lista-desplegable li {
+  display: block;
+  font-size: 1rem;
+  cursor: pointer;
+  align-items: start;
+}
+
+.lista-desplegable li * {
+  padding-bottom: 1px;
+  text-align: left;
+  width: 100%;
+}
+
+.lista-desplegable *:hover {
+  background-color: rgb(178, 178, 178);
+}
+
+.Grande {
+  background-color: var(--Grande);
+}
+.Sillon {
+  background-color: var(--Sillon);
+}
+.Balcon {
+  background-color: var(--Balcon);
+}
+.Salon {
+  background-color: var(--Adentro);
+}
+.Esq {
+  background-color: var(--Esquina);
+}
+.Patio {
+  background-color: var(--Patio);
+}
+.Banco {
+  background-color: var(--Bancos);
+}
+
+#mostrarDatos {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 25vw;
+  min-height: 18rem;
+  height: auto;
+  border: double 2px;
+  background-color: var(--fondoNoBlanco);
+}
+
+#mostrarDatos div{
+	margin-bottom: 1vmin;
+}
+
+#mostrarDatos *{
+	margin: 0;
+	padding:0;
+}
+
+.mostrarDatos {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  width: 30vw;
+  min-height: 18rem;
+  height: auto;
+  border: double 2px;
+  background-color: var(--fondoNoBlanco);
+}
+
+#mesaMostrada {
+  margin: 0;
+  text-align: center;
+}
+
+li {
+  display: flex;
+  /* min-width: 100%; */
+  justify-content: space-between;
+  list-style-type: none;
+  background-color: var(--fondoNoBlanco);
+  border-bottom: solid 1px black;
+  border-top: solid 1px black;
+}
+
+.col1 {
+  width: auto;
+  margin-left: 1rem;
+}
+
+.col2 {
+  width: 20%;
+  text-align: right;
+  margin-right: 1rem;
+}
+
+.col11 {
+  width: 50%;
+}
+
+#total {
+  width: auto;
+  text-align: right;
+  padding-right: 0.5rem;
+}
+
+.centr {
+  text-align: center;
+}
+
+.negrita{
+	padding-left: 0.5rem;
+}
+
+.negrita * {
+  font-weight: bold;
+}
+
+#precioManual{
+	padding-right: 0.5vmin;
+	width: 25%;
+	text-align: left;
+}
+
+textarea {
+  border: none;
+  font-size: 1rem;
+  height: 1.2rem;
+  resize: none;
+  padding: 0;
+  margin: 0;
+  /* width: auto; */
+  overflow-y: hidden;
+}
+
+.ahora {
+  position: absolute;
+  right: 10vw;
+  font-size: 1rem;
+  color: var(--fondoNoBlanco);
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 0 1vw;
+  display: none;
+}
+
+
+
+.leerTicket:hover .ahora {
+  display: block;
+}
+
+#resultados {
+  position: absolute;
+  bottom: 0;
+}
+
+.delete {
+  /* border: solid rgb(71, 71, 71) 1px; */
+  /* position:absolute;
+  right: 0; */
+  text-align: center;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  height: 1rem;
+  width: 1rem;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+}
+
+#mudarMesa {
+  font-size: 1.2rem;
+  height: 4vw;
+  position: absolute;
+  bottom: -5vw;
+  border: outset 2px lightgray;
+  align-self: center;
+}
+
+#mudarMesa:hover {
+  border: inset 2px lightgray;
+  background-color: rgb(135, 135, 135);
+}
+
+.botonTicket {
+  font-size: 1.2rem;
+  border: outset 2px;
+  vertical-align: center;
+  height: 4rem;
+  padding: 0.1 0.5rem 0.5rem 0.5rem;
+  width: auto;
+  padding: 0 2rem;
+  margin: 1rem;
+  text-align: center;
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+.botonTicket:hover {
+  border: inset black 2px;
+}
+
+.ticket {
+	z-index: 5;
+  display: flex;
+  padding-top: 5rem;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  min-height: 70vh;
+  width: 90vw;
+  position: absolute;
+  left: 5vw;
+  top: 5vh;
+  background-color: var(--modal-bg);
+  border: var(--modal-border);
+}
+
+#datosManuales {
+  margin-bottom: 1.8rem;
+}
+
+.botonesDiario {
+  /* 	position: absolute;
+	right:2vmin;
+	top:calc(50vh - 7.5vw); */
+  display: flex;
+  flex-direction: column;
+  width: 10vw;
+  height: 15vw;
+  margin-top: 1vmin;
+  margin-left: 5vw;
+  align-items: center;
+  height: auto;
+  /* padding-top:7px; */
+  border-radius: 5px;
+  justify-content: flex-start;
+}
+
+.botonesDiario * {
+  display: flex;
+  font-size: 1rem;
+  margin-top: 2vw;
+  /* margin: auto; */
+  width: 100%;
+  height: 4vw;
+  text-align: center;
+  align-items: center;
+  background-color: lightgrey;
+  border: ridge 4px lightslategrey;
+  justify-content: center;
+}
+
+.botonesDiario button,
+#mudarMesa {
+  background-color: lightgrey;
+  border: outset 2px darkgrey;
+  cursor: pointer;
+}
+
+.botonesDiario button:hover,
+#mudarMesa:hover {
+  background-color: rgb(135, 135, 135);
+}
+
+.ticket button,
+.mesasAbiertas button,
+td button {
+  font-weight: bold;
+  margin-top: 1rem;
+  border: rgb(153, 153, 153) outset 3px;
+}
+
+.cerrarModal {
+  position: absolute;
+  right: 2vw;
+  top: 2vh;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  border-radius: 30%;
+  background-color: rgb(180, 0, 0);
+  border: outset black 3px;
+}
+
+.ticket button:hover {
+  border: inset black 3px;
+}
+
+.ticketNombre {
+	padding: 0;
+	color: black;
+  text-align: center;
+  margin: 1vh auto;
+}
+
+.ticketDescr {
+	padding: 0;
+	margin: 0;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.final span {
+  display: none;
+}
+
+.imprimir {
+	margin: 0;
+	padding: 0;
+  width: 98%;
+  /* border: solid 1px black; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.final {
+  width: 95%;
+}
+
+.final .col-2 {
+  text-align: right;
+  /* padding-right: 1rem; */
+}
+
+.final * {
+  font-size: 1rem;
+}
+
+#aCobrar {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+#aCobrar * {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+#aCobrar .col1 {
+  width: 20mm;
+}
+
+#aCobrar .col2 {
+  width: auto;
+}
+
+.mesasAbiertas {
+  padding-top: 5rem;
+  min-height: 15rem;
+  width: 25vw;
+  flex-direction: column;
+  background-color: var(--modal-bg);
+  position: absolute;
+  flex-wrap: nowrap;
+  align-items: center;
+  top: 25vh;
+  right: 1vw;
+  border: var(--modal-border);
+}
+
+.mesasAbiertas div {
+  display: flex;
+  flex-direction: column;
+  /* width: 45%; */
+  border: solid black 1px;
+  padding: 1vw;
+  /* padding: 2vw; */
+}
+
+.mesasAbiertas button:hover {
+  border: inset black 3px;
+  background-color: calc();
+}
+
+.mesasAbiertas div p {
+  border: solid black 1px;
+  margin: 1vh;
+}
+
+.formasPago {
+	padding:0.5rem;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: double 2px;
+  background-color: var(--fondoNoBlanco);
+}
+
+.formasPago * {
+  font-size: 1rem;
+}
+
+#formasPago li {
+  display: flex;
+  justify-content: space-between;
+}
+
+#formasPago li input {
+	text-align: right;
+	width: 35%;
+}
+
+#pago{
+	text-align: right;
+}
+
+#formasPago li span {
+  width: 55%;
+}
+
+.libroDiario {
+	z-index: 5;
+  flex-wrap: wrap;
+  position: absolute;
+  left: 2vw;
+  top: 2.5vh;
+  width: 95vw;
+  min-height: 90vh;
+  background-color: var(--modal-bg);
+  border: var(--modal-border);
+  opacity: 1;
+}
+
+.cajaInicial {
+  display: flex;
+  flex-direction: column;
+  min-height: 50%;
+  width: 20vw;
+}
+
+.inicial {
+  display: grid;
+  grid-template-columns: repeat(2, 45%);
+  height: 30vh;
+  justify-content: flex-start;
+}
+
+.inicial label {
+  color: var(--fondoNoBlanco);
+}
+
+.numeral {
+  height: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 4rem;
+  width: 30vw;
+}
+
+.inicial * {
+  font-size: 1rem;
+  font-weight: normal;
+  height: 1.3rem;
+  min-width: none;
+  width: 9vw;
+  margin: 1vmin 0;
+  vertical-align: center;
+}
+
+.inicioCaja {
+  width: 8vw;
+}
+
+.containerIngresos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 2vw;
+  margin-top: 0;
+}
+
+.detalleIngresos * {
+  font-size: 1rem;
+}
+
+.containerIngresos button {
+  font-size: 1.2rem;
+}
+
+#detalleIngresos li textarea {
+  text-align: right;
+  min-width: 1vw;
+  width: 5rem;
+  min-width: 90px;
+  padding-right: 0.5vw;
+}
+
+#detalleIngresos li {
+  height: 1.3rem;
+  margin-bottom: 1vmin;
+}
+
+#diarioTotal {
+  font-weight: bold;
+}
+
+.mesasCobradas,
+.registros, .dbPrecios {
+	z-index: 5;
+  background-color: var(--modal-bg);
+  border: var(--modal-border);
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  left: 2vw;
+  top: 2.5vh;
+  width: 95vw;
+  min-height: 95vh;
+}
+
+.dbPrecios{
+	align-items: center;
+}
+
+.dbPrecios p{
+	color: var(--fondoNoBlanco);
+}
+
+.registros {
+  flex-direction: row;
+  justify-content: space-between;
+  overflow-y: auto;
+  min-height: 95vh;
+  width: 95vw;
+}
+
+.mesasCobradas h3 {
+  text-align: center;
+}
+
+.actualizarPrecios{
+	border-collapse: separate;
+	width: 25vw;
+	justify-self: center;
+	align-self: center;
+	
+}
+
+.guardarPrecios{
+	width: 15vw;
+	margin: 2vh 0;
+	align-self: center;
+	height: 3rem;
+	  background-color: darkgray;
+  border: outset darkgrey 2px;
+}
+
+.guardarPrecios:hover {
+  background-color: rgb(135, 135, 135);
+  border: inset darkgrey 2px;
+
+}
+
+.actualizarPrecios thead{
+		background-color: var(--fondoNoBlanco);
+	}
+
+	.actualizarPrecios td:nth-child(2){
+		text-align: right;
+	}
+
+	.listaPrecios tr:nth-child(odd){
+		background-color:darkgray ;
+		height: 1.1rem;
+	}
+	
+	.listaPrecios tr:nth-child(even){
+		height: 1.1rem;
+		background-color:var(--fondoNoBlanco) ;
+	}
+
+#containerMesasCobradas {
+  background-color: var(--fondoNoBlanco);
+  margin: 0 auto;
+/*   width: 85%; */
+  border-collapse: separate; /* Importante para que border-spacing funcione */
+  border-spacing: 5px; /* Espacio de 10 píxeles entre celdas */
+}
+
+#dinamicoMesasCerradas {
+  width: 100%;
+  height: 1.2rem;
+}
+
+.cobradaData {
+  padding-right: 3px;
+  text-align: right;
+  width: 4.5rem;
+  font-size: 1rem;
+}
+
+.botonMesaCobrada {
+  margin: 0;
+  display: inline;
+  width: auto;
+  font-size: 1rem;
+  background-color: darkgray;
+  border: outset darkgrey 2px;
+}
+
+.botonMesaCobrada:hover {
+  background-color: rgb(135, 135, 135);
+  border: inset darkgrey 2px;
+}
+
+.borrarMesaCobrada {
+  margin: 0;
+  display: inline;
+  width: auto;
+  font-size: 1rem;
+  background-color: darkgray;
+  border: outset darkgrey 2px;
+}
+
+.borrarMesaCobrada:hover {
+  background-color: rgb(135, 135, 135);
+  border: inset darkgrey 2px;
+}
+
+.mostrarEgresos {
+  width: 45%;
+  margin-left: 1vw;
+}
+
+.mostrarEgresos * {
+	font-size: 1rem;
+}
+
+.mostrarEgresos h3 {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.egresoEdit td {
+  width: 25%;
+  background-color: var(--fondoNoBlanco);
+}
+
+.egresos tr {
+  height: 1.2rem;
+}
+
+.egresos th {
+  color: var(--fondoNoBlanco);
+}
+
+.egresos td:nth-child(1),
+.egresos th:nth-child(1) {
+  display: none;
+}
+
+.egresos td:nth-child(5) {
+  text-align: right;
+}
+
+.egresos td:nth-child(6),
+.egresos th:nth-child(6) {
+  background-color: var(--modal-bg);
+}
+
+.remove {
+  width: 12px;
+}
+
+.egresosResult td:nth-child(4),
+td:nth-child(5) {
+  text-align: right;
+  background-color: var(--fondoNoBlanco);
+}
+
+.remove {
+  cursor: pointer;
+}
+
+.itemEgreso {
+  background-color: var(--fondoNoBlanco);
+}
+
+.resumenDiario {
+	margin-left: 5vw;
+  width: 50%;
+}
+
+.resumenDiario table th {
+  font-size: 1rem;
+  color: var(--fondoNoBlanco);
+}
+
+.resumenDiario table td {
+  font-size: 1rem;
+  background-color: var(--fondoNoBlanco);
+  height: 1.3rem;
+  width: 20%;
+  text-align: right;
+}
+
+.resumenDiario table td:nth-child(1) {
+  background-color: var(--modal-bg);
+  color: var(--fondoNoBlanco);
+}
+
+.resumenDiario table td:nth-child(5) {
+  font-weight: bold;
+}
+
+#cerrarCaja {
+  font-size: 1.2rem;
+  margin-left: 2vw;
+  height: 5rem;
+  border: outset 2px lightgray;
+  align-self: center;
+}
+
+#cerrarCaja:disabled:hover + .avisoMesas {
+  display: inline;
+}
+
+.avisoMesas {
+  display: none;
+  align-self: center;
+  font-size: 0.8rem;
+  color: orange;
+}
+
+#cerrarCaja:hover {
+  border: inset 2px lightgray;
+  background-color: rgb(135, 135, 135);
+}
+
+.registrosTitulo {
+  position: absolute;
+  width: 100%;
+  top: 2vmin;
+  text-align: center;
+  margin-top: 1vmin;
+  color: var(--fondoNoBlanco);
+  height: 1.4rem;
+  font-size: 1.2rem;
+}
+
+.ingresoDatos {
+  margin-top: 5vh;
+  margin-left: 1vmin;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 25vw;
+  grid-auto-rows: 1.5rem;
+  row-gap: 2vh;
+  margin-top: 3rem;
+}
+
+.ingresoDatos label {
+  font-size: 1rem;
+  align-self: center;
+  white-space: nowrap;
+  margin-right: 2vw;
+  color: lightgrey;
+}
+
+.ingresoDatos span * {
+  font-size: 1rem;
+  width: 8vw;
+}
+
+.mostrarDatosResumen {
+  opacity: 0;
+  width: 70vw;
+  margin-top: 3rem;
+}
+
+#consultaRegistro {
+  font-size: 1.2rem;
+  height: 2.5rem;
+  margin-top: 2vh;
+  border: outset 2px lightgray;
+  background-color: lightgrey;
+}
+
+#consultaRegistro:hover {
+  border: inset 2px lightgray;
+  background-color: rgb(135, 135, 135);
+}
+
+.Ingresos,
+.registroEgresos,
+.balance {
+  justify-self: center;
+  width: 90%;
+  background-color: var(--fondoNoBlanco);
+  border-collapse: separate; /* Importante para que border-spacing funcione */
+  /* border-spacing: 10px; */
+  text-align: right;
+  font-size: 1rem;
+  margin-bottom: 5vh;
+}
+
+.Ingresos tbody tr:nth-child(odd),
+.registroEgresos tbody tr:nth-child(odd),
+.balance tbody tr {
+  background-color: rgb(182, 182, 182);
+}
+
+.center {
+  text-align: center;
+}
+
+#dinamicoMesasCerradas tr:nth-child(odd){
+	background-color: darkgray;
+}
+
+#dinamicoMesasCerradas tr:nth-child(odd) td:nth-child(5),
+.Ingresos tr:nth-child(odd) td:nth-child(5),
+#mostrarEgresos tr:nth-child(odd) td:nth-child(5),
+.balance tr:nth-child(odd) td:nth-child(5){
+  background-color: darkgray; /* Color de fondo para celdas impares */
+}
+
+.descr{
+	color:var(--fondoNoBlanco);
+	margin-bottom: 0.5rem;
+	text-align: center;
+}
+
+.containerNumerales{
+	position: absolute;
+	right: 1vw;
+	bottom: 1vh;
+
+}
+
+.tablaNumerales{
+	display: flex;
+	width: 25vw;
+	flex-direction: column;
+}
+
+.tablaNumerales th{
+	color: var(--fondoNoBlanco);
+	width: 8vw;
+}
+
+.tablaNumerales td{
+	width: 8vw;
+	background-color: var(--fondoNoBlanco);
+}
+
+.numerales{
+	display: flex;
+	flex-direction: column;
+	border-collapse: separate;
+  border-spacing: 2px;
+}
+
+.anularFondo{
+	position: fixed;
+	top:0;
+	left:0;
+	z-index: 2;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgb(23, 54, 54);
+	opacity:0.9;
+	display: none;
+}
+
+#botonesTicket{
+	width: 90%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+#informacion{
+	display: none;
+	flex-direction: column;
+	z-index: 5;
+	width: 60vw;
+	padding: 1vw;
+	position: absolute;
+	left: 20vw;
+	top: 2vh;
+	background-color: var(--fondoNoBlanco);
+	color: var(--modal-bg);
+}
+
+#informacion h3{
+	color: var(--modal-bg);
+}
+#informacion .circulo li{
+	border-style: none;
+	list-style-type: disc;
+}
+
+.validarPass{
+	z-index: 6;
+	position: absolute;
+	width: 40vw;
+	height: 40vh;
+	top: 10vh;
+	left: 30vw;
+	background-color: var(--modal-bg);
+	border: var(--modal-border);
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	row-gap: 5vh;
+}

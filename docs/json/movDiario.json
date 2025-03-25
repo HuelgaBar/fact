@@ -1,0 +1,28 @@
+{
+  "Caja Inicial": {
+    "Fecha": "",
+    "Efectivo": "",
+    "En cuenta": ""
+  },
+  "Ingresos": {
+    "Efectivo": "",
+    "Transferencia": "",
+    "Debito": "",
+    "Credito": ""
+  },
+  "Egresos": {
+    "Proveedores": {
+      "monto": "",
+      "Medio de pago": ""
+    },
+    "Sueldos": {
+      "monto": "",
+      "Medio de pago": ""
+    },
+    "Gastos Varios": {
+      "monto": "",
+      "Medio de pago": ""
+    }
+  },
+  "Diferencia de arqueo": ""
+}
