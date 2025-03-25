@@ -51,6 +51,7 @@ const app = Vue.createApp({
 		  document.querySelector("#pass").value=""
 		  document.querySelector("#val").value = "";
 		  document.querySelector(".validarPass").style.display = "flex";
+	      document.querySelector("#pass").focus()
       }
       if (e.target.className === "remove") {
         quitarArticulo(e);
