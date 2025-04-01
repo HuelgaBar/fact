@@ -44,7 +44,7 @@ export function actualizarEgresos(){
 			<td></td>
 			<td></td>
 			<td>TOTAL</td>
-			<td style="font-weight: bold">${total}</td>
+			<td id="totalEgreso" style="font-weight: bold">${total}</td>
 		</tr>`;
 		$tbody.innerHTML += agregarEgreso
 	}

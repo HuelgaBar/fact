@@ -36,3 +36,13 @@ export async function llamarEgresos(datos) {
     console.log("Error en base de datos, recargue el buscador", error);
   }
 }
+
+export async function resumenDiaxDia(datos) {
+	  try {
+    const response = await fetch(`${url}/resumenDiario?${datos}`);
+    const resumen = await response.json();
+    return resumen.data;
+  } catch (error) {
+    console.log("Error en base de datos, recargue el buscador", error);
+  }
+}

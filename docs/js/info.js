@@ -18,6 +18,19 @@ informacion.innerHTML = `
 <li>&#149 Se pueden agregar artículos a mano en &quot;Ingreso a mano&quot;, después de agregar el monto, con Enter queda registrado, descuentos se ingresan con valores negativos</li>
 <li>&#149 &quot;Ingrese cubiertos&quot; permite agregar la cantidad de personas por mesa</li>
 </ul>
+<h4>Repetir Ingreso:</h4>
+<ul class ="circulo">
+<li>&#149 Para no ingresar varias veces el mismo artículo:</li>
+</ul>
+<ul class ="circulo">
+<li>1- &nbsp&nbsp Ingresar un artículo</li>
+<li>2- &nbsp&nbsp Situarse en el artículo en el ticket (con tab o click)</li>
+<li>3- &nbsp&nbsp Presionar Ctrl+C (no hace falta seleccionar el texto, sólo que el cursor esté en el item a copiar)</li>
+<li>4- &nbsp&nbsp En la ventana emergente, ingresar la cantidad de veces que se quiere copiar el artículo y presionar enter o aceptar</li>
+</ul>
+<ul class ="circulo">
+<li>&#149 Este método copia tambien la hora de despacho, por lo que se recomienda para ingresos inmediatos, no para repetir ingresos anteriores</li>
+</ul>
 <h4>Mudar Mesa</h4>
 <ul class ="circulo"><li>&#149 Permite mover el contenido de una mesa a otra, muestra advertencias para confirmar los cambios, o si no hay nada para mover</li></ul>
 <ul class ="circulo">
@@ -104,6 +117,10 @@ informacion.innerHTML = `
 </li>
 <li>&#149 &quot;Consultar&quot;
   Muestra la consulta basada en las selecciones anteriores</li>
+<li>&#149 &quot;Resumen x día&quot;
+  Muestra un resumen de los movimientos de cada día, un resumen de los totales, un balance final comparando ingresos y egresos, y habilita el botón &quot;Imprimir Resumen&quot</li>
+  <li>&#149 &quot;Imprimir Resumen&quot;
+  Abre una nueva ventana y el dialogo de impresión para imprimir el resumen generado por la consulta</li>
 </ul>`;
 const cerrar = botonCerrarModal()
 informacion.appendChild(cerrar)

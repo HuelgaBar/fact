@@ -56,6 +56,7 @@ export async function guardarHistorial() {
 
 export async function cerrarCaja() {
 	try {
+		guardarResumenDiario()
 		const datos = JSON.parse(localStorage.getItem("egresosDiario"));
 		if(datos.length >0){
 		const respuesta = await fetch(`${url}/egresos/bulk`, {
@@ -63,9 +64,8 @@ export async function cerrarCaja() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(datos), // datos para resumenVentas
+      body: JSON.stringify(datos), 
     });
-	//  console.log(datos)
 
     if (!respuesta.ok) {
       throw new Error(`Error en egresos: ${respuesta.status}`);
@@ -78,4 +78,43 @@ export async function cerrarCaja() {
       console.error("Error general:", error);
 	}
 
+}
+
+async function guardarResumenDiario() {
+	try {
+		const $ =(text) => {return document.querySelector(text)}
+		const caja = JSON.parse(localStorage.getItem("cajaInicial"))
+		const hoy = caja.Fecha
+		const datos = {
+      fecha: hoy,
+      ingresoTotal: $("#diarioTotal").value,
+      ingresoEfvo: $("#diarioEfvo").value,
+      ingresoTransf: $("#diarioTransf").value,
+      ingresoDeb: $("#diarioDeb").value,
+      ingresoCred: $("#diarioCred").value,
+      egresoTotal: $("#totalEgreso").innerText,
+      egresoEfvo: $("#egrEf").innerText,
+      egresoTransf: $("#egrTransf").innerText,
+      egresoDeb: $("#egrDeb").innerText,
+      egresoCred: $("#egrCred").innerText,
+      mesas: $("#diarioMesas").value,
+      cubiertos: $("#diarioCubiertos").value
+    };
+	 console.log(datos)
+	 const respuesta = await fetch(`${url}/resumenDiario`, {
+     method: "POST",
+     headers: {
+       "Content-Type": "application/json",
+     },
+     body: JSON.stringify(datos),
+   });
+
+   if (!respuesta) {
+     throw new Error(`Error en /resumenVentas: ${respuesta.status}`);
+   }
+
+   const data = await respuesta.json();
+	} catch (error) {return window.alert("Error:  ", error)
+		
+	}
 }

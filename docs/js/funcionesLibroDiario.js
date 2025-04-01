@@ -29,7 +29,10 @@ export function calculoNumerales() {
 	const $total=document.querySelector("#totalNum")
 	let suma =0
 	for (let i = 0; i < $celda.length-3; i=i+3) {
-		$celda[i + 2].innerHTML = Number($celda[i].innerHTML.replace("$","")) * Number($celda[i + 1].innerHTML);
+		let cant = 0
+		if(!isNaN(Number($celda[i+1].innerHTML))) {cant = Number($celda[i + 1].innerHTML)};
+		$celda[i + 2].innerHTML =
+      Number($celda[i].innerHTML.replace("$", "")) * cant
 		suma += Number($celda[i + 2].innerHTML);
 	}
 	$total.innerHTML = suma

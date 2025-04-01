@@ -1,7 +1,10 @@
 import botonCerrarModal from "./botonCerrarModal.js";
-import { mostrarRegistro } from "./funcionesRegistro.js";
+import { modalDiaxDia, mostrarRegistro, mostrarResumen } from "./funcionesRegistro.js";
+import { imprimirResumen } from "./imprimirResumenDiaxDia.js";
 
 export default function modalRegistros() {
+	const modalResumenxDia = modalDiaxDia()
+
   const $modal = document.createElement("div");
   $modal.className = "registros";
   const containerIngresos = document.createElement("div");
@@ -19,9 +22,38 @@ export default function modalRegistros() {
   consulta.id = "consultaRegistro";
   consulta.textContent = "Consultar";
   consulta.addEventListener("click", e=> {
+	document.querySelector("#resumenxDia").style.display = "none";
+	document.querySelector(".mostrarDatosResumen").style.display = "flex";
+  botonImprimir.style.display = "none";
 	mostrarRegistro()
+
 })
-  containerIngresos.appendChild(consulta);
+
+const xDia = document.createElement("button");
+xDia.id="xDia"
+xDia.textContent = "Resumen x dia"
+xDia.addEventListener("click", e =>{
+	document.querySelector("#resumenxDia").style.display = "flex";
+	document.querySelector(".mostrarDatosResumen").style.display = "none";
+  botonImprimir.style.display = "flex";
+	mostrarResumen()
+})
+
+
+	const botonImprimir = document.createElement("button");
+	botonImprimir.id = "imprimirResumen"
+  botonImprimir.textContent = "Imprimir Resumen";
+  botonImprimir.style.display = "none"
+	botonImprimir.addEventListener("click", ()=>{
+		imprimirResumen()
+	})
+
+	const divBotones = document.createElement("div")
+	divBotones.id = "botonesRegistro"
+  divBotones.appendChild(consulta);
+  divBotones.appendChild(xDia);
+  divBotones.appendChild(botonImprimir);
+  containerIngresos.appendChild(divBotones);
 
   const titulo = document.createElement("h2");
   titulo.textContent = "Examinar registros";
@@ -78,6 +110,7 @@ export default function modalRegistros() {
   $modal.appendChild(titulo);
   $modal.appendChild(containerIngresos);
   $modal.appendChild(mostrarDatos);
+  $modal.appendChild(modalResumenxDia);
 
   setTimeout(() => {
     const labels = document.querySelectorAll("[id^=label]");

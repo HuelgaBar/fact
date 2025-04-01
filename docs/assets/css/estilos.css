@@ -969,6 +969,7 @@ td:nth-child(5) {
 }
 
 .mostrarDatosResumen {
+	flex-direction: column;
   opacity: 0;
   width: 70vw;
   margin-top: 3rem;
@@ -1110,4 +1111,33 @@ td:nth-child(5) {
 	align-items: center;
 	justify-content: center;
 	row-gap: 5vh;
+}
+
+#xDia, #imprimirResumen{
+	  font-size: 1.2rem;
+  min-height: 2.5rem;
+  margin-top: 2vh;
+  border: outset 2px lightgray;
+  background-color: lightgrey;
+}
+
+#resumenxDia{
+	position: absolute;
+	flex-direction: column;
+	right: 2vw;
+	top: 10vh;
+	width: 65vw;
+}
+
+#mostrarResumenDiaxDia tr:nth-child(odd){
+	background-color: rgb(182, 182, 182);
+}
+
+#mostrarResumenDiaxDia tr:nth-child(even){
+	background-color: var(--fondoNoBlanco);
+}
+
+#verResumen tr:nth-child(odd) td:nth-child(5){
+	background-color: var(--fondoNoBlanco);
+
 }

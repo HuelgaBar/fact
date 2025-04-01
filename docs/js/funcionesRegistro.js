@@ -1,4 +1,4 @@
-import { llamarEgresos, llamarIngresos } from "./funcionesQueryGet.js";
+import { llamarEgresos, llamarIngresos, resumenDiaxDia } from "./funcionesQueryGet.js";
 
 export async function mostrarRegistro(){
 
@@ -153,4 +153,145 @@ export async function mostrarRegistro(){
 	</tr>
 	`;
 	
+}
+
+export function modalDiaxDia() {
+
+	const container = document.createElement("div")
+	container.id = "resumenxDia"
+	container.style.display = "none"
+	const tabla = document.createElement("table")
+	tabla.id = "mostrarResumenDiaxDia"
+	tabla.innerHTML = `
+	<thead>
+	<tr>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th colspan=5>INGRESOS</th>
+	<th colspan=5>EGRESOS</th>
+	</tr>
+	<tr>
+	<th>Fecha</th>
+	<th>Mesas</th>
+	<th>Cubiertos</th>
+	<th>Efvo</th>
+	<th>Transf</th>
+	<th>Débito</th>
+	<th>Crédito</th>
+	<th>TOTAL</th>
+	<th>Efvo</th>
+	<th>Transf</th>
+	<th>Débito</th>
+	<th>Crédito</th>
+	<th>TOTAL</th>
+	</tr>
+	</thead>
+	<tbody id="verResumen"></tbody>
+	`;
+	container.appendChild(tabla)
+	return container
+}
+
+export async function mostrarResumen() {
+
+  const fecha=(dato) =>{
+	let hoy =new Date (dato)
+	let dia = hoy.getDate()
+	let mes = hoy.getMonth()
+	let mesNum = String(mes + 1).padStart(2, "0");
+	let anio = hoy.getFullYear()
+	return `${dia}-${mesNum}-${anio}`
+}
+		const datos = document.querySelectorAll("[id^=resp]");
+    const data = {
+      fechaInicio:
+        datos[0].value != "" ? new Date(datos[0].value).getTime() : null,
+      fechaFin:
+        datos[1].value != "" ? new Date(datos[1].value).getTime() : null,
+    };
+	 const param = `fechaInicio=${data.fechaInicio}&fechaFin=${data.fechaFin}`
+	 console.log(param)
+    const resp = await resumenDiaxDia(param);
+	 const container = document.querySelector("#verResumen")
+	 container.innerHTML = ""
+	 const total = {
+		"ingresoTotal":0,
+		"ingresoEfvo":0,
+		"ingresoTransf":0,
+		"ingresoDeb":0,
+		"ingresoCred":0,
+		"egresoTotal":0,
+		"egresoEfvo":0,
+		"egresoTransf":0,
+		"egresoDeb":0,
+		"egresoCred":0,
+		"mesas":0,
+		"cubiertos":0
+	 }
+	 resp.forEach(el =>{
+		let hoy = fecha(el.fecha);
+		total.ingresoTotal += Number(el.ingresoTotal);
+		total.ingresoEfvo += Number(el.ingresoEfvo);
+		total.ingresoTransf += Number(el.ingresoTransf);
+		total.ingresoDeb += Number(el.ingresoDeb);
+		total.ingresoCred += Number(el.ingresoCred);
+		total.egresoTotal += Number(el.egresoTotal);
+		total.egresoEfvo += Number(el.egresoEfvo);
+		total.egresoTransf += Number(el.egresoTransf);
+		total.egresoDeb += Number(el.egresoDeb);
+		total.egresoCred += Number(el.egresoCred);
+		total.mesas += Number(el.mesas)
+		total.cubiertos += Number(el.cubiertos)
+		const linea = document.createElement("tr")
+		const datos = `
+		<td>${hoy}</td>
+		<td>${el.mesas}</td>
+		<td>${el.cubiertos}</td>
+		<td>${el.ingresoEfvo}</td>
+		<td>${el.ingresoTransf}</td>
+		<td>${el.ingresoDeb}</td>
+		<td>${el.ingresoCred}</td>
+		<td>${el.ingresoTotal}</td>
+		<td>${el.egresoEfvo}</td>
+		<td>${el.egresoTransf}</td>
+		<td>${el.egresoDeb}</td>
+		<td>${el.egresoCred}</td>
+		<td>${el.egresoTotal}</td>
+		`
+		linea.innerHTML = datos
+		container.appendChild(linea)
+	 })
+	 const totales = document.createElement("tr")
+	 const balance = document.createElement("tr")
+	 balance.style.fontWeight = "bold"
+	 const lineaTotales = `
+	 <td>Totales:</td>
+		<td>${total.mesas}</td>
+		<td>${total.cubiertos}</td>
+		<td>${total.ingresoEfvo}</td>
+		<td>${total.ingresoTransf}</td>
+		<td>${total.ingresoDeb}</td>
+		<td>${total.ingresoCred}</td>
+		<td>${total.ingresoTotal}</td>
+		<td>${total.egresoEfvo}</td>
+		<td>${total.egresoTransf}</td>
+		<td>${total.egresoDeb}</td>
+		<td>${total.egresoCred}</td>
+		<td>${total.egresoTotal}</td>
+		`
+		const lineaBalance = `
+		<td></td>
+		<td></td>
+		<td>Balance: </td>
+		 <td>${total.ingresoEfvo - total.egresoEfvo}</td>
+		 <td>${total.ingresoTransf - total.egresoTransf}</td>
+		 <td>${total.ingresoDeb - total.egresoDeb}</td>
+		 <td>${total.ingresoCred - total.egresoCred}</td>
+		<td>${total.ingresoTotal - total.egresoTotal}</td>
+		`;
+	totales.innerHTML = lineaTotales
+	balance.innerHTML = lineaBalance
+	container.appendChild(totales)
+	container.appendChild(balance)
 }

@@ -22,6 +22,7 @@ import { anularFondo } from "./js/anularFondo.js";
 import { modalPrecios } from "./js/manejarPrecios.js";
 import { info } from "./js/info.js";
 import { validarPass } from "./js/modalvalidacion.js";
+import { copiar } from "./js/copiar.js";
 
 // import { botonTicket, validarCobro } from "./js/cerrarCuenta.js";
 
@@ -33,6 +34,11 @@ const app = Vue.createApp({
     };
   },
   async mounted() {
+	document.addEventListener("copy", e =>{
+		if (document.activeElement.className.includes("art")){
+			copiar()
+		}
+	})
     document.addEventListener("click", (e) => {
       if (e.target.className === "delete") {
         quitarArticulo(e);
@@ -51,7 +57,8 @@ const app = Vue.createApp({
 		  document.querySelector("#pass").value=""
 		  document.querySelector("#val").value = "";
 		  document.querySelector(".validarPass").style.display = "flex";
-	      document.querySelector("#pass").focus()
+		  document.querySelector("#pass").focus()
+
       }
       if (e.target.className === "remove") {
         quitarArticulo(e);

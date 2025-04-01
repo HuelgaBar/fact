@@ -5,10 +5,12 @@ export async function generarTicket() {
 //   console.log(response);
   const data = await response.json();
   const orden = data.orden;
+  const time = new Date()
+  const fecha = `${time.getDate()}-${time.getMonth()}-${time.getFullYear()}`
 
   const $ul = document.querySelector(".imprimir");
   const num = document.querySelector("#orden");
-  num.innerHTML = `<p>Orden N°: ${orden + 1}</p><p>Mesa: ${
+  num.innerHTML = `<p>${fecha} - Orden N°: ${orden + 1}</p><p>Mesa: ${
     document.querySelector("#mesaMostrada").innerText
   }</p>`;
 

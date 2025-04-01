@@ -3,10 +3,11 @@ export function imprimirMostrarDatos() {
   const nombre= document.querySelector(".ticketNombre").innerHTML
   const descr = document.querySelectorAll(".ticketDescr")
   const lineas = document.querySelectorAll(".impr")
+  console.log(descr)
   let texto = `
   <h3 style="text-align:center; font-size:3.5mm;width:80%">${nombre}</h3>
   <p style="text-align:center; font-size:3.1mm;width:80%">${descr[0].innerHTML}</p>
-  <p style="text-align:center; font-size:3.1mm;width:80%">${descr[1].innerHTML}</p>
+  <p style="text-align:center; font-size:3.1mm;width:80%">${descr[1].innerText}</p>
   <br>
   `;
   let bold=''
@@ -30,6 +31,6 @@ export function imprimirMostrarDatos() {
   ventanaImpresion.document.write("</body></html>");
   ventanaImpresion.document.close();
   ventanaImpresion.focus();
-  ventanaImpresion.print();
-  ventanaImpresion.close();
+//   ventanaImpresion.print();
+//   ventanaImpresion.close();
 }
