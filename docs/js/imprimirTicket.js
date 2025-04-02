@@ -31,6 +31,6 @@ export function imprimirMostrarDatos() {
   ventanaImpresion.document.write("</body></html>");
   ventanaImpresion.document.close();
   ventanaImpresion.focus();
-//   ventanaImpresion.print();
-//   ventanaImpresion.close();
+  ventanaImpresion.print();
+  ventanaImpresion.close();
 }
