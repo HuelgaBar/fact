@@ -202,7 +202,7 @@ export async function mostrarResumen() {
 	let mesNum = String(mes + 1).padStart(2, "0");
 	let anio = hoy.getFullYear()
 	return `${dia}-${mesNum}-${anio}`
-}
+	}
 		const datos = document.querySelectorAll("[id^=resp]");
     const data = {
       fechaInicio:
@@ -213,6 +213,7 @@ export async function mostrarResumen() {
 	 const param = `fechaInicio=${data.fechaInicio}&fechaFin=${data.fechaFin}`
 	 console.log(param)
     const resp = await resumenDiaxDia(param);
+	 console.log(resp)
 	 const container = document.querySelector("#verResumen")
 	 container.innerHTML = ""
 	 const total = {
@@ -231,7 +232,7 @@ export async function mostrarResumen() {
 	 }
 	 resp.forEach(el =>{
 		let hoy = fecha(el.fecha);
-		total.ingresoTotal += Number(el.ingresoTotal);
+		total.ingresoTotal += Number(el.IngresoTotal);
 		total.ingresoEfvo += Number(el.ingresoEfvo);
 		total.ingresoTransf += Number(el.ingresoTransf);
 		total.ingresoDeb += Number(el.ingresoDeb);
@@ -252,7 +253,7 @@ export async function mostrarResumen() {
 		<td>${el.ingresoTransf}</td>
 		<td>${el.ingresoDeb}</td>
 		<td>${el.ingresoCred}</td>
-		<td>${el.ingresoTotal}</td>
+		<td>${el.IngresoTotal}</td>
 		<td>${el.egresoEfvo}</td>
 		<td>${el.egresoTransf}</td>
 		<td>${el.egresoDeb}</td>
