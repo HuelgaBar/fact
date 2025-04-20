@@ -211,9 +211,8 @@ export async function mostrarResumen() {
         datos[1].value != "" ? new Date(datos[1].value).getTime() : null,
     };
 	 const param = `fechaInicio=${data.fechaInicio}&fechaFin=${data.fechaFin}`
-	 console.log(param)
+	 
     const resp = await resumenDiaxDia(param);
-	 console.log(resp)
 	 const container = document.querySelector("#verResumen")
 	 container.innerHTML = ""
 	 const total = {
